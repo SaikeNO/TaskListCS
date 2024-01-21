@@ -1,12 +1,14 @@
-﻿namespace WebApplication3.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApplication3.Models
 {
-    public class Task
+    public class UpdateTaskDto
     {
-        public int Id { get; set; }
+        [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public bool IsDone { get; set; }
-
     }
 }

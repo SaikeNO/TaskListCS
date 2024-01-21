@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication3.Entities;
 
@@ -11,9 +12,10 @@ using WebApplication3.Entities;
 namespace WebApplication3.Migrations
 {
     [DbContext(typeof(TaskDbContext))]
-    partial class TaskListDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240121181421_add date")]
+    partial class adddate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +54,7 @@ namespace WebApplication3.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2024, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Trzeba coś tam zrobić",
                             IsDone = false,
                             Name = "Zrobić pranie"
@@ -60,9 +62,9 @@ namespace WebApplication3.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2024, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Napisać jakiś kawałek kodu na studia",
-                            IsDone = true,
+                            IsDone = false,
                             Name = "Pouczyć się"
                         });
                 });

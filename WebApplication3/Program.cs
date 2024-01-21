@@ -1,5 +1,5 @@
-using WebApplication3;
 using WebApplication3.Entities;
+using WebApplication3.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TaskDbContext>();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddScoped<ITaskService, TaskService>();
 
 var app = builder.Build();
 

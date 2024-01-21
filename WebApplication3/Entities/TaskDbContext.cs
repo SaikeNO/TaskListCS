@@ -21,12 +21,16 @@ namespace WebApplication3.Entities
                     Id = 1,
                     Name = "Zrobić pranie",
                     Description = "Trzeba coś tam zrobić",
+                    Date = new DateTime(2024,1,21),
+                    IsDone = false,
                 },
                 new Task()
                 {
                     Id = 2,
                     Name = "Pouczyć się",
                     Description = "Napisać jakiś kawałek kodu na studia",
+                    Date = new DateTime(2024,2,12),
+                    IsDone = true,
                 }
                 );
 
