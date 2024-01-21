@@ -5,9 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 builder.Services.AddControllers();
-builder.Services.AddDbContext<TaskListDbContext>();
+builder.Services.AddDbContext<TaskDbContext>();
 
 var app = builder.Build();
 

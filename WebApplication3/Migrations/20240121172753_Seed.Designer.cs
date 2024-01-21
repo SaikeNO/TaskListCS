@@ -10,7 +10,7 @@ using WebApplication3.Entities;
 
 namespace WebApplication3.Migrations
 {
-    [DbContext(typeof(TaskListDbContext))]
+    [DbContext(typeof(TaskDbContext))]
     [Migration("20240121172753_Seed")]
     partial class Seed
     {

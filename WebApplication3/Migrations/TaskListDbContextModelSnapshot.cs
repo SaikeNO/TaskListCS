@@ -9,7 +9,7 @@ using WebApplication3.Entities;
 
 namespace WebApplication3.Migrations
 {
-    [DbContext(typeof(TaskListDbContext))]
+    [DbContext(typeof(TaskDbContext))]
     partial class TaskListDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -2,7 +2,7 @@
 
 namespace WebApplication3.Entities
 {
-    public class TaskListDbContext : DbContext
+    public class TaskDbContext : DbContext
     {
         public DbSet<Task> Tasks { get; set; }
         private string _connectionString =
