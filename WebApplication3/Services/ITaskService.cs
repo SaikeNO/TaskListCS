@@ -7,7 +7,7 @@ namespace WebApplication3.Services
         int Create(CreateTaskDto taskDto);
         IEnumerable<TaskDto> GetAll();
         TaskDto GetById(int id);
-        bool Delete(int id);
-        bool Update(int id, UpdateTaskDto dto);
+        void Delete(int id);
+        void Update(int id, UpdateTaskDto dto);
     }
 }

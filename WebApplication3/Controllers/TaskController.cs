@@ -16,14 +16,12 @@ namespace WebApplication3.Controllers
         [HttpPut("{id}")]
         public ActionResult Update([FromBody] UpdateTaskDto dto, [FromRoute] int id)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var isUpdated = _taskService.Update(id, dto);
-            
-            if(!isUpdated) return NotFound();
+            _taskService.Update(id, dto);
 
             return Ok();
         }
@@ -31,18 +29,16 @@ namespace WebApplication3.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete([FromRoute] int id)
         {
-            var isDeleted = _taskService.Delete(id);
-            
-            if(isDeleted) return NoContent();
-            
-            return NotFound();
+            _taskService.Delete(id);
+
+            return NoContent();
         }
 
 
         [HttpPost]
         public ActionResult CreateTask([FromBody] CreateTaskDto taskDto)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -65,11 +61,6 @@ namespace WebApplication3.Controllers
         public ActionResult<TaskDto> Get([FromRoute] int id)
         {
             var task = _taskService.GetById(id);
-            
-            if (task == null)
-            {
-                return NotFound();
-            }
 
             return Ok(task);
         }

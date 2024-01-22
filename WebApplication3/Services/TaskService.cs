@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using WebApplication3.Entities;
+using WebApplication3.Exceptions;
 using WebApplication3.Models;
 using Task = WebApplication3.Entities.Task;
 
@@ -9,17 +10,19 @@ namespace WebApplication3.Services
     {
         private readonly TaskDbContext _dbContext;
         private readonly IMapper _mapper;
-        public TaskService(TaskDbContext dbContext, IMapper mapper)
+
+        public TaskService(TaskDbContext dbContext, IMapper mapper, ILogger<TaskService> logger)
         {
             _dbContext = dbContext;
             _mapper = mapper;
         }
 
-        public bool Update(int id, UpdateTaskDto dto)
+        public void Update(int id, UpdateTaskDto dto)
         {
             var task = _dbContext.Tasks.FirstOrDefault(t => t.Id == id);
 
-            if (task == null) return false;
+            if (task == null)
+                throw new NotFoundException("Task not found");
 
             task.Name = dto.Name;
             task.Description = dto.Description;
@@ -27,27 +30,25 @@ namespace WebApplication3.Services
             task.IsDone = dto.IsDone;
 
             _dbContext.SaveChanges();
-            
-            return true;
         }
 
-        public bool Delete(int id)
+        public void Delete(int id)
         {
             var task = _dbContext.Tasks.FirstOrDefault(t => t.Id == id);
             
-            if (task == null) return false;
+            if (task == null)
+                throw new NotFoundException("Task not found");
 
             _dbContext.Tasks.Remove(task);
             _dbContext.SaveChanges();
-            
-            return true;
         }
 
         public TaskDto GetById(int id)
         {
             var task = _dbContext.Tasks.FirstOrDefault(t => t.Id == id);
 
-            if (task == null) return null;
+            if (task == null)
+                throw new NotFoundException("Task not found");
 
             var taskDto = _mapper.Map<TaskDto>(task);
 
