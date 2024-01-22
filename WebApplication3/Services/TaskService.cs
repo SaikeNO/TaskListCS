@@ -24,7 +24,7 @@ namespace WebApplication3.Services
             if (task == null)
                 throw new NotFoundException("Task not found");
 
-            task.Name = dto.Name;
+            task.Title = dto.Title;
             task.Description = dto.Description;
             task.Date = dto.Date;
             task.IsDone = dto.IsDone;

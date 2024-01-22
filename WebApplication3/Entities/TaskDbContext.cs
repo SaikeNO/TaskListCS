@@ -11,7 +11,7 @@ namespace WebApplication3.Entities
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Task>()
-                .Property(t => t.Name)
+                .Property(t => t.Title)
                 .IsRequired()
                 .HasMaxLength(25);
 
@@ -19,7 +19,7 @@ namespace WebApplication3.Entities
                 .HasData(new Task()
                 {
                     Id = 1,
-                    Name = "Zrobić pranie",
+                    Title = "Zrobić pranie",
                     Description = "Trzeba coś tam zrobić",
                     Date = new DateTime(2024,1,21),
                     IsDone = false,
@@ -27,7 +27,7 @@ namespace WebApplication3.Entities
                 new Task()
                 {
                     Id = 2,
-                    Name = "Pouczyć się",
+                    Title = "Pouczyć się",
                     Description = "Napisać jakiś kawałek kodu na studia",
                     Date = new DateTime(2024,2,12),
                     IsDone = true,
