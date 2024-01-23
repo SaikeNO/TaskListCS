@@ -12,8 +12,7 @@ sudo chmod -R 777 /var/www
 mkdir app1
 dotnet publish -C release -o /var/www/app1
 
-2.
-sudo nano /etc/nginx/sites-available/default
+2. sudo nano /etc/nginx/sites-available/default
 server {
     listen        80;
     server_name   example.com *.example.com;
@@ -30,7 +29,7 @@ server {
 }
 
 3. sudo nginx -t
-sudo nginx -s reload
+   sudo nginx -s reload
 
 4. sudo nano /etc/systemd/system/app1.service
 
@@ -51,7 +50,7 @@ WantedBy=multi-user.target
 5. sudo systemctl enable app1.service
 sudo systemctl start app1.service
 
-6.dotnet ef database update 
+6. dotnet ef database update 
 connstring = "Server=localhost,1401;database=; User Id=SA; Password=; TrustServerCertificate=True;"
 
 
